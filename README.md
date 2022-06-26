@@ -12,8 +12,13 @@ Install via NPM:
 ```
 npm i await-handler --save
 ```
+Install via YARN:
+```
+yarn add await-handler
+```
 
 ## Usage
+**JS**
 ```js
 const on = require('await-handler');
 
@@ -25,6 +30,48 @@ async function asyncFunctionExample() {
     
     // ... handle the result
     console.log(result);
+}
+```
+**ES import**
+```js
+import on from "await-handler";
+```
+**TS**
+```ts
+import on from "await-handler";
+async function asyncFunctionExample() {
+    let [err, result] = await on(myAsyncTask());
+    if(err) {
+        throw err;
+    }
+    
+    // ... handle the result
+    console.log(result);
+}
+
+// with errorProps
+async function asyncFunctionExampleWithErrorProps() {
+    let [err, result] = await on<{props: string}, string>(myAsyncTask(), {props: "hey"});
+    if(err) {
+        console.log(err.props); // "hey"
+        throw err;
+    }
+    
+    // ... handle the result
+    console.log(result);
+}
+
+// You can defined the type of the error adn the data by doing: 
+async function asyncFunctionExampleWithErrorPropsAndDataType() {
+    // the error will be of type Error or MyCustomError
+    // the data will be of type string
+    let [err, result] = await on<Error | MyCustomError, string>(myAsyncTask());
+    if(err) {
+        throw err; // err instanceof Error || err instanceof MyCustomError
+    }
+    
+    // ... handle the result
+    console.log(result); // result instanceOf string
 }
 ```
 
@@ -40,6 +87,10 @@ Adds handler to `promise` in order to return an array which can be destructured.
 | promise    | Yes       | Promise | Promise to wrap and return results for.                    |
 | errorProps | No        | Object  | Optional object to append to the `Error` if one is thrown. |
 
+***Generic***
+```ts
+on<errorType, dataType>() {};
+```
 **Examples:**
 ```js
 async function basicExample() {
@@ -52,6 +103,8 @@ async function basicExample() {
 
 async function errorPropsExample() {
     let [err, result] = await on(myAsyncTask(), { customMessage: 'Something failed!' });
+    // With typescript
+    let [err, result] = await on<{customMessage: string}>(myAsyncTask(), { customMessage: 'Something failed!' })
     if(err) {
         console.error(err.customMessage);
         return process.exit(1);

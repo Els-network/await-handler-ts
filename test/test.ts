@@ -1,6 +1,6 @@
 "use strict";
-const assert = require('assert');
-const on = require('./');
+import assert from 'assert';
+import on from '../lib';
 
 describe('Await Handler', function() {
     it('should return promise', function() {
@@ -18,14 +18,21 @@ describe('Await Handler', function() {
         it('should receive error and undefined', async function() {
             let [err, res] = await on(Promise.reject('error'));
             assert.ok(err === 'error');
-            assert.ok(res === undefined);
+            assert.ok(res === null);
         });
         
         it('should include additional properties on error object', async function() {
-            let [err, res] = await on(Promise.reject(new Error('Test')), { prop: 'test' });
+            let [err, res] = await on<{prop: string}, string>(Promise.reject(new Error('Test')), { prop: 'test' });
+            assert.ok(err!.prop === 'test');
             assert.ok(err instanceof Error);
-            assert.ok(err.prop === 'test');
-            assert.ok(res === undefined);
+            assert.ok(res === null);
         });
+        
+        it('should apply the right type', async () => {
+            let [err, res] = await on<Error, string>(Promise.reject(new Error('Test')));
+            assert.ok(typeof err === "object");
+            assert.ok(err instanceof Error);
+            assert.ok(res === null);
+        })
     });
 });
