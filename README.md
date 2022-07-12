@@ -7,6 +7,8 @@ You continue to use async/await normally, except to wrap the function you are "a
 
 **NOTE:** This module works in Node 6+, but in order to use async/await, you need to use Node 8+ or compile with Babel.
 
+**THIS ADD SUPPORT FOR TYPESCRIPT OF THE AWAIT-HANDLER MADE BY (KyleRoss)[https://github.com/KyleRoss]**
+
 ## Install
 Install via NPM:
 ```

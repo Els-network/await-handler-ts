@@ -1,6 +1,6 @@
 {
-  "name": "await-handler",
-  "version": "1.2.0",
+  "name": "await-handler-ts",
+  "version": "2.0.1",
   "description": "Basic wrapper for await that allows handling of errors without try/catch blocks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KyleRoss/await-handler.git"
+    "url": "git+https://github.com/Els-network/await-handler-ts.git"
   },
   "keywords": [
     "await",
@@ -28,12 +28,15 @@
     "await-to-js",
     "awaittojs"
   ],
-  "author": "Kyle Ross <thejavascriptguy@gmail.com>",
+  "authors": [
+    {"name": "Kyle Ross", "email": "<thejavascriptguy@gmail.com>"},
+    {"name": "Idk Demo", "url": "https://github.com/idkDemo"}
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KyleRoss/await-handler/issues"
+    "url": "https://github.com/Els-network/await-handler-ts/issues"
   },
-  "homepage": "https://github.com/KyleRoss/await-handler",
+  "homepage": "https://github.com/Els-network/await-handler-ts",
   "devDependencies": {
     "@types/mocha": "^9.1.1",
     "@types/node": "^18.0.0",
