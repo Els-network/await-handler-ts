@@ -1,6 +1,6 @@
 {
   "name": "await-handler-ts",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Basic wrapper for await that allows handling of errors without try/catch blocks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
