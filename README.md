@@ -1,5 +1,4 @@
-# await-handler
-[![npm](https://img.shields.io/npm/v/await-handler.svg?style=for-the-badge)](https://www.npmjs.com/package/await-handler) [![npm](https://img.shields.io/npm/dt/await-handler.svg?style=for-the-badge)](https://www.npmjs.com/package/await-handler) [![David](https://img.shields.io/david/KyleRoss/await-handler.svg?style=for-the-badge)](https://david-dm.org/KyleRoss/await-handler) [![Travis](https://img.shields.io/travis/KyleRoss/await-handler/master.svg?style=for-the-badge)](https://travis-ci.org/KyleRoss/await-handler) [![license](https://img.shields.io/github/license/KyleRoss/await-handler.svg?style=for-the-badge)](https://github.com/KyleRoss/await-handler/blob/master/LICENSE) [![Beerpay](https://img.shields.io/beerpay/KyleRoss/await-handler.svg?style=for-the-badge)](https://beerpay.io/KyleRoss/await-handler)
+# await-handler-ts
 
 Simple signature to ease the paid of catching errors using async/await. This module will allow a simple method of catching errors from an `await` handler without the need to wrap everything in try/catch blocks. This module is a Node.js only version based on [await-to-js](https://github.com/scopsy/await-to-js) minus the typescript aspect. Credit for this module goes to [Dima Grossman](http://blog.grossman.io/how-to-write-async-await-without-try-catch-blocks-in-javascript/), as it was based off the code provided.
 
